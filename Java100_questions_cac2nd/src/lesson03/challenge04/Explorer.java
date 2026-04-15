@@ -66,8 +66,28 @@ public class Explorer {
 
 
 		//ここにwhile文を利用した処理を記述
+		while (member < 5) {
 
+			if (fullLength == 300) {
+				// 渡り始め（300cm）
+				System.out.println("隊長：");
+				System.out.println((member+1) + "人目が渡り始めたよ\n");
+				fullLength -= 50; // 一歩目（書かないとループになる）
 
+			}else if (fullLength > 0) {
+				// 渡り中
+				fullLength -= 50;
+				System.out.println("隊長：");
+				System.out.println("まだ渡ってるよ\n");
+
+			}else if (fullLength <= 0) {
+				// 渡り終わり（0m）（表示なし）
+				member ++;
+				fullLength =300;
+
+			}
+
+		}
 		System.out.println("全員渡り終わったよ！");
 
 	}

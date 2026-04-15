@@ -47,7 +47,9 @@
 
 package lesson02.challenge08;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Detective {
 
@@ -69,8 +71,34 @@ public class Detective {
 		System.out.print("数字を選んでここに入力＞");
 
 		//ここに入力処理を入れる
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String escape_route_str = reader.readLine();
+		int escape_route = Integer.parseInt(escape_route_str); // 逃走経路：escape_route
 
 		//ここにswitch文を入れる
+		System.out.println("\n探偵：");
+
+		switch (escape_route) {
+		case 1:
+			// 変数 escape_route に 1 が入力された場合
+			System.out.println("やっぱりその経路が一番可能性が高いね。");
+			break;
+
+		case 2:
+			// 変数 escape_route に 2 が入力された場合
+			System.out.println("その可能性は低いかな。");
+			break;
+
+		case 3:
+			// 変数 escape_route に 3 が入力された場合
+			System.out.println("犬がよく知っている人物ならあり得るね。");
+			break;
+
+		default:
+			// 変数 escape_route に 1～3以外 が入力された場合
+			System.out.println("他に道はありませんよ。");
+			break;
+		}
 
 	}
 

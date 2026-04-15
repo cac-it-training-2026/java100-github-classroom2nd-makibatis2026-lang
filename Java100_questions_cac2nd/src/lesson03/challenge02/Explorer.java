@@ -63,7 +63,15 @@ public class Explorer {
 
 
 		//ここにfor文を利用した処理を記述
+		for (int i = 3; i > 0; i--) {
+			System.out.println("\n隊長：");
+			System.out.println("あと" + i + "回！");
 
+			System.out.println("\n袋に何個入れますか？>");
+			String ireru_Cans_str = br.readLine();
+			int ireru_Cans = Integer.parseInt(ireru_Cans_str); // 鯖缶を詰める数：ireru_Cans			
+			inputCans += ireru_Cans;			
+		}
 
 		if (inputCans >= targetCans) {
 			System.out.println("\n隊長：");
