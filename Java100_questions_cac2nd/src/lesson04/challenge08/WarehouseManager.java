@@ -56,10 +56,42 @@ public class WarehouseManager {
 
 
 		//ここに重複チェックおよび値の代入処理を記述する①(1～5)
+		int inputNum = 0;
+		boolean loopFlag = false;
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			do {
+				loopFlag = false;
+				inputNum = (int) (Math.random() * 10) % 5 + 1;
 
+				for (int j = 0; j < ABKosanArray1.length; j++) {
+					if (ABKosanArray1[j] == inputNum) {
+						loopFlag = true;
+						break;
+					}
+				}
+
+			} while (loopFlag);
+
+			ABKosanArray1[i] = inputNum;
+		}
 
 		//ここに重複チェックおよび値の代入処理を記述する②(6～10)
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			do {
+				loopFlag = false;
+				inputNum = (int) (Math.random() * 10) % 5 + 6;
 
+				for (int j = 0; j < ABKosanArray2.length; j++) {
+					if (ABKosanArray2[j] == inputNum) {
+						loopFlag = true;
+						break;
+					}
+				}
+
+			} while (loopFlag);
+
+			ABKosanArray2[i] = inputNum;
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産から新たに預かった荷物と以前から預かっている荷物の");
@@ -91,7 +123,37 @@ public class WarehouseManager {
 
 
 		//ここに奇数群(ABKosanArray1)と偶数群(ABKosanArray2)に振り分ける処理を記述する。
+		int[] sortBox1 = new int[5]; // 奇数の仕分けに使う配列
+		int num1 = 0;
+		int[] sortBox2 = new int[5]; // 偶数の仕分けに使う配列
+		int num2 = 0;
 
+		// 仕分け処理
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			if ((ABKosanArray1[i] % 2) == 1) { //奇数のとき
+				sortBox1[num1] = ABKosanArray1[i];
+				num1 ++;
+			}else if ((ABKosanArray1[i] % 2) == 0) {
+				sortBox2[num2] = ABKosanArray1[i];
+				num2 ++;
+			}
+		}
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			if ((ABKosanArray2[i] % 2) == 1) { //奇数のとき
+				sortBox1[num1] = ABKosanArray2[i];
+				num1 ++;
+			}else if ((ABKosanArray2[i] % 2) == 0) {
+				sortBox2[num2] = ABKosanArray2[i];
+				num2 ++;
+			}
+		}
+		// 仕分けたものを再びしまう処理
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			ABKosanArray1[i] = sortBox1[i];
+		}
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			ABKosanArray2[i] = sortBox2[i];
+		}
 
 
 		System.out.println("Yさん：");

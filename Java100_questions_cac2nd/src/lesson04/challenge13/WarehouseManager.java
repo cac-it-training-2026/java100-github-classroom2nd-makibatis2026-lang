@@ -65,6 +65,9 @@ public class WarehouseManager {
 
 
 		//配列の宣言および初期化処理を記述する
+		String[] misakio = {"へい！らっしゃい！！", 
+				"何にしますか！今日は活きのいいコハダが入ってますよ", 
+		"まいどあり！！またどうぞ"};
 
 
 		System.out.println("Yさん：");
@@ -72,6 +75,10 @@ public class WarehouseManager {
 
 
 		//三つのあいさつパターンの出力処理を記述する
+		for (int i = 0; i < misakio.length; i++) {
+			System.out.print("あいさつパターン" + (i + 1) + "...");
+			System.out.println("「" + misakio[i] + "」\n");
+		}
 
 
 		System.out.println("Yさん：");
@@ -81,6 +88,13 @@ public class WarehouseManager {
 
 
 		//入力処理および入力値の代入処理
+		System.out.print("どのパターンを変更しますか＞");
+		int num = Integer.parseInt(br.readLine()) - 1;
+
+		System.out.print("\nあいさつを吹き込んでください＞");
+		String hello = br.readLine();
+
+		misakio[num] = hello;
 
 
 		System.out.println("\nYさん：");
@@ -88,7 +102,10 @@ public class WarehouseManager {
 
 
 		//三つのあいさつパターンの出力処理を記述する
-
+		for (int i = 0; i < misakio.length; i++) {
+			System.out.print("あいさつパターン" + (i + 1) + "...");
+			System.out.println("「" + misakio[i] + "」\n");
+		}
 
 		System.out.println("Yさん：");
 		System.out.println("まあ少しはマシになったかな。");
