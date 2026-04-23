@@ -108,6 +108,15 @@ public class RobotMaker {
         //（インスタンス名はrobot）
         //makeEggDishesを実行する。
         //標準出力でメニューを表示する。
+        Robot robot = new Robot();
+        String menu = robot.makeEggDishes(flourNum, sugarNum, eggNum, butterNum);
+        		
+        if (menu == null) {
+			System.out.println("\n何も作れません。");
+		}else {
+			System.out.println("\n" + menu + "が出来ました。");
+		}
+        
     }
 
 }

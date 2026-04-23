@@ -39,6 +39,7 @@ import java.io.InputStreamReader;
 class Spaceship {
     private int air;
    //ここにフィールドを追加する。
+    private int fuel;
 
     public int getAir() {
         return air;
@@ -47,10 +48,32 @@ class Spaceship {
     public void setAir(int air) {
         this.air = air;
     }
-
-
+    
     //ここに適切な処理を記述する。
+	/**
+	 * @return fuel
+	 */
+	public int getFuel() {
+		return fuel;
+	}
 
+	/**
+	 * @param fuel セットする fuel
+	 */
+	public void setFuel(int fuel) {
+		this.fuel = fuel;
+	}
+	
+	public int consumingFuel() {
+		fuel = fuel / 2;
+		int lightYears = fuel * 10;
+		return lightYears;
+	}
+	
+	public int consumingFuel(int consumingFuel) {
+		int lightYears = (consumingFuel * 10) - fuel;
+		return lightYears;
+	}
 
 }
 
@@ -72,6 +95,7 @@ public class Astronaut {
 
 
         //ここでフィールドのfuelに値を設定する。
+        spaceship.setFuel(fuel);
 
 
         System.out.println("\n"+spaceship.getAir() + "リットルの空気が入りました。");
@@ -80,7 +104,8 @@ public class Astronaut {
 
 
         //ここに適切な処理を記述する。
-
+        int lightYears = spaceship.consumingFuel();
+        System.out.println(" 航行距離：" + lightYears + "光年\n");
 
         System.out.println("燃料で航行します。");
         System.out.print("使用燃料を入力してください＞");
@@ -89,6 +114,8 @@ public class Astronaut {
 
 
         //ここに適切な処理を記述する。
+        lightYears = spaceship.consumingFuel(consumingFuel);
+        System.out.println(" 航行距離：" + lightYears + "光年");
 
 
     }
