@@ -34,7 +34,66 @@ import java.io.InputStreamReader;
 
 
 //ここにOmegalianクラスを記述する
+class Omegalian {
+	String item;
+	
+	public String getItem() {
+        return item;
+    }
+	
+	public void setItem(String item) {
+        int lastIndex = item.length() - 1; // 文字列最後の文字のインデックスを返す
+        char lastch = item.charAt(lastIndex); // 最後の文字を取り出してlastchに入れる
+        String changeStr = changeLastChar(lastch); // changeLastCharで数字を文字に変えたものをchangeStrに入れる
 
+        if(changeStr != null) { // changeStrの中身がnullじゃなかったら（数字を文字に変えていたら）
+            StringBuffer sb = new StringBuffer(item); // StringBufferクラス：文字列操作ができるクラス
+            sb.replace(lastIndex, lastIndex+1, changeStr); // 指定した範囲にある部分文字列を別の文字列に置換する(開始は含み終了は含まない)
+            this.item = new String(sb); // StringBuffer型からString型のオブジェクトにする
+        } else {
+            this.item = item;
+        }
+    }
+	
+	private String changeLastChar(char ch) {
+        String changeStr = null;
+        switch (ch) {
+        case '0':
+            changeStr = "zero";
+            break;
+        case '1':
+            changeStr = "one";
+            break;
+        case '2':
+            changeStr = "two";
+            break;
+        case '3':
+            changeStr = "three";
+            break;
+        case '4':
+            changeStr = "four";
+            break;
+        case '5':
+            changeStr = "five";
+            break;
+        case '6':
+            changeStr = "six";
+            break;
+        case '7':
+            changeStr = "seven";
+            break;
+        case '8':
+            changeStr = "eight";
+            break;
+        case '9':
+            changeStr = "nine";
+            break;
+        default:
+            break;
+        }
+        return changeStr;
+    }
+}
 
 public class Astronaut {
 
@@ -46,13 +105,15 @@ public class Astronaut {
 
 
         //ここに適切な処理を記述する
+        Omegalian omegalian = new Omegalian();
 
 
         String item = null;
 
 
         //ここに適切な処理を記述する
-
+        omegalian.setItem(present);
+        item = omegalian.getItem();
 
         System.out.println("\nΩ星人：");
         System.out.println("えっ！" + item + "をくれるオメガか！");

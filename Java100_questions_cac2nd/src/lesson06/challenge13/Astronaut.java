@@ -45,6 +45,34 @@ import java.io.InputStreamReader;
 
 
 //ここにSpaceshipクラスを記述する
+class Spaceship {
+	int fuel;
+
+	/**
+	 * @return fuel
+	 */
+	public int getFuel() {
+		return fuel;
+	}
+
+	/**
+	 * @param fuel セットする fuel
+	 */
+	public void setFuel(int fuel) {
+		this.fuel = fuel;
+	}
+	
+	public boolean checkFuel(double fuelNum) {
+		boolean checker = false;
+		if (Math.floor(fuelNum) >= 12) {
+			checker = true;
+		}else {
+			checker = false;
+		}
+		return checker;
+	}
+}
+
 
 
 public class Astronaut {
@@ -62,13 +90,13 @@ public class Astronaut {
 
 
         //ここに適切な処理を記述する
-
+        Spaceship spaceship = new Spaceship();
 
         boolean isCheck = false;
 
 
         //ここに適切な処理を記述する
-
+        isCheck = spaceship.checkFuel(fuelNum);
 
         System.out.println("\n宇宙飛行士：");
         if(isCheck){

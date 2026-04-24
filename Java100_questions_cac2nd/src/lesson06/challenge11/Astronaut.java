@@ -41,6 +41,51 @@ import java.io.InputStreamReader;
 
 
 //ここにGammalianクラスを記述する
+class Gammalian {
+	String item;
+	boolean isGood;
+	
+	public boolean getIsGood() {
+        return isGood;
+    }
+	
+	public void setItem(String item) {
+		if (item.indexOf("0") >= 0) {
+			this.isGood = true;
+			this.item = item;
+		}else if (item.indexOf("1") >= 0) {
+			this.isGood = true;
+			this.item = item;
+		}else if (item.indexOf("2") >= 0) {
+			this.isGood = true;
+			this.item = item;
+		}else if (item.indexOf("3") >= 0) {
+			this.isGood = true;
+			this.item = item;
+		}else if (item.indexOf("4") >= 0) {
+			this.isGood = true;
+			this.item = item;
+		}else if (item.indexOf("5") >= 0) {
+			this.isGood = true;
+			this.item = item;
+		}else if (item.indexOf("6") >= 0) {
+			this.isGood = true;
+			this.item = item;
+		}else if (item.indexOf("7") >= 0) {
+			this.isGood = true;
+			this.item = item;
+		}else if (item.indexOf("8") >= 0) {
+			this.isGood = true;
+			this.item = item;
+		}else if (item.indexOf("9") >= 0) {
+			this.isGood = true;
+			this.item = item;
+		}else {
+			this.isGood = false;
+			this.item = item;
+		}
+	}
+}
 
 
 public class Astronaut {
@@ -53,13 +98,15 @@ public class Astronaut {
 
 
         //ここに適切な処理を記述する
+        Gammalian gammalian = new Gammalian();
 
 
         boolean isGood = false;
 
 
         //ここに適切な処理を記述する
-
+        gammalian.setItem(present);
+        isGood = gammalian.getIsGood();
 
         System.out.println("\nγ星人：");
         if(isGood){
