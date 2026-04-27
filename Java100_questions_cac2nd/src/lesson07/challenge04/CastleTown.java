@@ -23,7 +23,6 @@
 
 package lesson07.challenge04;
 
-
 class Samurai {
 
     void fight() {
@@ -32,13 +31,24 @@ class Samurai {
 
 
     //ここにwork()メソッドを記述
-
+    void work() {
+    	System.out.println("何かして働くよ～。");
+    }
 
 }
 
 
 //ここに問題1で作成したRetainerを改変して記述
+class Retainer extends Samurai {
 
+	void getPaid() {
+		System.out.println("給料をもらうよ～。");
+	}
+	
+	void work() {
+		System.out.println("年貢を取り立てるよ～。");
+	}
+}
 
 public class CastleTown {
 
@@ -49,6 +59,8 @@ public class CastleTown {
 
 
         //ここに必要な処理を記述
+        Samurai samurai = new Samurai();
+        samurai.work();
 
 
         System.out.println("\n具体的に言うと藩士は年貢を取り立てます。\n");
@@ -57,7 +69,8 @@ public class CastleTown {
 
 
         //ここに必要な処理を記述
-
+        Retainer retainer = new Retainer();
+        retainer.work();
 
     }
 }

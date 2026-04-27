@@ -45,9 +45,42 @@ class Samurai {
 
 
 //ここにRetainerクラスを記述
+class Retainer extends Samurai {
+	protected String domain;
 
+	public Retainer(){
+
+	}
+
+	@Override
+	public String toString(){
+		return "拙者は" + domain + "藩士、" + name + "ともうす。";
+	}
+
+	void getPaid() {
+		System.out.println("給料をもらうよ～。");
+	}
+
+	void work() {
+		System.out.println("年貢を取り立てるよ～。");
+	}
+}
 
 //ここにRoninクラスを記述
+class Ronin extends Samurai {
+	public Ronin() {
+
+	}
+	
+	@Override
+	public String toString() {
+		return "拙者は武州○△□村の浪人、" + name + "ともうす。";
+	}
+
+	void work() {
+		System.out.println("傘張りするよ～。");
+	}
+}
 
 
 public class CastleTown {
@@ -57,6 +90,15 @@ public class CastleTown {
 
 
         //ここに適切な処理を記述
+        Samurai[] samuraiBox = new Samurai[5];
+        for (int i = 0; i < samuraiBox.length; i++) {
+			int samuraiChoice = (int) ((Math.random() * 10) % 2);
+			if (samuraiChoice == 0) {
+				samuraiBox[i] = new Ronin();
+			}else if (samuraiChoice == 1) {
+				samuraiBox[i] = new Retainer();
+			}
+		}
 
 
         System.out.println("詰め終わりました。\n");
@@ -64,7 +106,9 @@ public class CastleTown {
 
 
         //ここに適切な処理を記述
-
+        for (int i = 0; i < samuraiBox.length; i++) {
+			System.out.println(samuraiBox[i].getClass());
+		}
 
     }
 }

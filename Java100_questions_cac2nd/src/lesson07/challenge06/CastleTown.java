@@ -37,9 +37,14 @@ class Samurai {
 
 
 //ここにUltimateSwordsmanクラスを記述
-
+final class UltimateSwordsman extends Samurai {
+	
+}
 
 //ここにEasySwordsmanクラスを記述
+class EasySwordsman extends UltimateSwordsman {
+	
+}
 
 
 public class CastleTown {
@@ -49,7 +54,7 @@ public class CastleTown {
 
 
        //ここにEasySwordsmanクラスのオブジェクト生成処理を記述
-
+        EasySwordsman easySwordsman = new EasySwordsman();
 
     }
 }
