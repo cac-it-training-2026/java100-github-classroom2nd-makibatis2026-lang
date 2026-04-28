@@ -34,13 +34,34 @@ public class WarehouseManager {
 
 
 		//ここに配列の宣言を記述する
-
+		int data_siz = 5;
+		int[] ABnumbers = new int[data_siz];
 
 		int intputNum = 0;
 		boolean loopFlag = false;
 
 
 		//ここに重複チェックおよび値の代入処理を記述する
+		for (int i = 0; i < ABnumbers.length; i++) {
+			// 入れる数字の決定
+			intputNum = (int) (Math.random() * 5 + 1);
+			
+			if (intputNum == 5 && loopFlag == false) {
+				// 入れる数字が5でフラグが立ってない場合
+				ABnumbers[i] = intputNum;
+				loopFlag = true;
+				
+			}else if (intputNum == 5 && loopFlag == true) {
+				// 入れる数字が5でフラグが立っている場合
+				i--;
+				// もう一度袋に入れる数字を再設定してほしいので
+				// iを減らしてcontinue
+				continue;
+			}else if (i == (ABnumbers.length - 1) && intputNum != 5 && loopFlag == false) {
+				// 最後まで5がでなかった場合
+				ABnumbers[i] = 5;
+			}
+		}
 
 
 		System.out.println("E主任：");
@@ -51,6 +72,11 @@ public class WarehouseManager {
 
 
 		//ここに要素の確認および何袋目かの出力処理を記述する
+		for (int i = 0; i < ABnumbers.length; i++) {
+			if (ABnumbers[i] == 5) {
+				System.out.println((i + 1) + "袋目");
+			}
+		}
 
 
 		System.out.println("に入っていました。");

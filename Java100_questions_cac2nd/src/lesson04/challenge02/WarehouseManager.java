@@ -95,21 +95,25 @@ public class WarehouseManager {
 
 		System.out.print("データ型を選んでください（1...文字、2...文字列、3...数値）＞");
 
-
 		//ここに入力処理を記述する。
+		int data_typ = Integer.parseInt(br.readLine());
 
 
 		System.out.print("\n要素数を選んでください（1...1個、2...2個、3...3個）＞");
 
-
 		//ここに入力処理を記述する。
-
+		int data_siz = Integer.parseInt(br.readLine());
 
 		boolean errFlag = false;
 
-
 		//ここに入力値の範囲チェック処理を記述する。
+		if (data_typ > 3 || data_typ < 1) {
+			errFlag = true;
+			
+		}else if (data_siz > 3 || data_siz < 1) {
+			errFlag = true;
 
+		}
 
 		if (!errFlag) {
 			System.out.println("\nZ先輩：");
@@ -129,7 +133,50 @@ public class WarehouseManager {
 
 			//ここに入力値による分岐および配列要素数の確定、
 			//値の代入処理を記述する。
-
+			
+			if (data_typ == 1) {
+				if (data_siz == 1) {
+					charArray = new char[1];
+					charArray[0] = 'X';
+				} else if (data_siz == 2) {
+					charArray = new char[2];
+					charArray[0] = 'X';
+					charArray[1] = 'O';
+				} else {
+					charArray = new char[3];
+					charArray[0] = 'X';
+					charArray[1] = 'O';
+					charArray[2] = 'c';
+				}
+			} else if (data_typ == 2) {
+				if (data_siz == 1) {
+					strArray = new String[1];
+					strArray[0] = "XO";
+				} else if (data_siz == 2) {
+					strArray = new String[2];
+					strArray[0] = "XO";
+					strArray[1] = "company";
+				} else {
+					strArray = new String[3];
+					strArray[0] = "XO";
+					strArray[1] = "company";
+					strArray[2] = "systems";
+				}
+			} else {
+				if (data_siz == 1) {
+					intArray = new int[1];
+					intArray[0] = 1;
+				} else if (data_siz == 2) {
+					intArray = new int[2];
+					intArray[0] = 1;
+					intArray[1] = 2;
+				} else {
+					intArray = new int[3];
+					intArray[0] = 1;
+					intArray[1] = 2;
+					intArray[2] = 3;
+				}
+			}
 
 			System.out.println("Yさん：");
 			System.out.println("...出来ました。\n");
@@ -139,9 +186,17 @@ public class WarehouseManager {
 
 			System.out.println("Yさん：");
 
-
 			//ここに入力値による分岐および配列要素の表示処理を記述する。
+			if (data_typ == 1) {
+				System.out.println(charArray[(data_siz - 1)]);
 
+			}else if (data_typ == 2) {
+				System.out.println(strArray[(data_siz - 1)]);
+				
+			}else {
+				System.out.println(intArray[(data_siz - 1)]);
+				
+			}
 
 			System.out.println("です。\n");
 

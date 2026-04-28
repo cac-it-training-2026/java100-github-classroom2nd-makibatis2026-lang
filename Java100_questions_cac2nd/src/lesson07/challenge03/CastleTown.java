@@ -43,10 +43,21 @@ class Samurai {
 
 
 //ここに問題1で作成したRetainerクラスを記述
+class Retainer extends Samurai {
 
+	void getPaid() {
+		System.out.println("給料をもらうよ～。");
+	}
+}
 
 //ここにMagistrateクラスを記述
-
+class Magistrate extends Retainer {
+	
+	void judge() {
+		System.out.println("判決を下すよ～。");
+	}
+	
+}
 
 public class CastleTown {
 
@@ -64,6 +75,9 @@ public class CastleTown {
 
 
         //ここに必要な処理を記述
+        Retainer retainer = new Retainer();
+		retainer.fight();
+		retainer.getPaid();
 
 
         System.out.println("\n奉行はそれに加えて判決も下します。\n");
@@ -72,7 +86,10 @@ public class CastleTown {
 
 
         //ここに必要な処理を記述
-
+        Magistrate magistrate = new Magistrate();
+        magistrate.fight();
+        magistrate.getPaid();
+        magistrate.judge();
 
     }
 }

@@ -29,9 +29,15 @@ class Samurai {
 
 
     //ここにフィールドnameを記述
+	protected String name;
+	/**
+	 * @param name
+	 */
+	public Samurai(String name) {
+		this.name = name;
+	}
 
-
-    void fight() {
+	void fight() {
         System.out.println("戦うよ～。");
     }
 
@@ -43,10 +49,49 @@ class Samurai {
 
 
 //ここにRetainerクラスを記述
+class Retainer extends Samurai {
+	/**
+	 * @param name
+	 */
+	public Retainer(String name) {
+		super(name);
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
 
+	@Override
+	public String toString() {
+		return "拙者は○△□藩士、" + name + "ともうす。";
+	}
+
+
+	void getPaid() {
+		System.out.println("給料をもらうよ～。");
+	}
+	
+	void work() {
+		System.out.println("年貢を取り立てるよ～。");
+	}
+}
 
 //ここにRoninクラスを記述
+class Ronin extends Samurai {
+	/**
+	 * @param name
+	 */
+	public Ronin(String name) {
+		super(name);
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
 
+	@Override
+	public String toString() {
+		return "拙者は武州○△□村の浪人、" + name + "ともうす。";
+	}
+
+	void work() {
+		System.out.println("傘張りするよ～。");
+	}
+}
 
 public class CastleTown {
 
@@ -55,13 +100,15 @@ public class CastleTown {
 
 
         //ここに適切な処理を記述
-
+        Retainer retainer = new Retainer("テスト太郎");
+        System.out.println(retainer);
 
         System.out.println("\n浪人クラスのtoString()メソッドを確認します。\n");
 
 
         //ここに適切な処理を記述
-
+        Ronin ronin = new Ronin("テスト兵衛");
+        System.out.println(ronin);
 
     }
 }

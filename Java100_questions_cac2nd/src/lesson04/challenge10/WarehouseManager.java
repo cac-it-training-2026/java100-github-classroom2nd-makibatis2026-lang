@@ -63,9 +63,51 @@ public class WarehouseManager {
 
 
 		//ここに必要な配列の宣言を記述する。
-
+		int[] boxC = new int[5];
+		int[] boxD = new int[5];
+		int[] boxE = new int[5];
+		int[] empty = {0, 1, 1, 1}; // 空箱を決めるのに使う配列
 
 		//ここに配列に値を代入する処理を記述する。(要素はランダム)
+		// 空箱を決める処理（空箱：0, 中身あり：1）
+		for (int i = 0; i < boxC.length; i++) {
+			int emptyNum = (int) (Math.random() * 4);
+			boxC[i] = empty[emptyNum];
+		}
+		// 空箱以外の箱に数字を代入する処理
+		for (int i = 0; i < boxC.length; i++) {
+			if (boxC[i] == 1) {
+				boxC[i] = (int) (Math.random() * 10) + 1;
+			}else {
+				continue;
+			}
+		}
+		// 空箱を決める処理（空箱：0, 中身あり：1）
+		for (int i = 0; i < boxD.length; i++) {
+			int emptyNum = (int) (Math.random() * 4);
+			boxD[i] = empty[emptyNum];
+		}
+		// 空箱以外の箱に数字を代入する処理
+		for (int i = 0; i < boxD.length; i++) {
+			if (boxD[i] == 1) {
+				boxD[i] = (int) (Math.random() * 10) + 1;
+			}else {
+				continue;
+			}
+		}
+		// 空箱を決める処理（空箱：0, 中身あり：1）
+		for (int i = 0; i < boxE.length; i++) {
+			int emptyNum = (int) (Math.random() * 4);
+			boxE[i] = empty[emptyNum];
+		}
+		// 空箱以外の箱に数字を代入する処理
+		for (int i = 0; i < boxE.length; i++) {
+			if (boxE[i] == 1) {
+				boxE[i] = (int) (Math.random() * 10) + 1;
+			}else {
+				continue;
+			}
+		}
 
 
 		System.out.println("E主任：");
@@ -78,19 +120,26 @@ public class WarehouseManager {
 
 
 		//ここに配列Cの要素をすべて出力する処理を記述する。
+		for (int cNum : boxC) {
+			System.out.print(cNum + ", ");
+		}
 
 
 		System.out.print("\n\nD...");
 
 
 		//ここに配列Dの要素をすべて出力する処理を記述する。
-
+		for (int dNum : boxD) {
+			System.out.print(dNum + ", ");
+		}
 
 		System.out.print("\n\nE...");
 
 
 		//ここに配列Eの要素をすべて出力する処理を記述する。
-
+		for (int eNum : boxE) {
+			System.out.print(eNum + ", ");
+		}
 
 		System.out.println("\n\nです。\n");
 

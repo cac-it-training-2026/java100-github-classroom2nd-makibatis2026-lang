@@ -29,15 +29,21 @@ class Samurai {
         System.out.println("戦うよ～。");
     }
 
-
     //ここに問題4で作成したwork()メソッドを記述
-
+    void work() {
+    	System.out.println("何かして働くよ～。");
+    }
 
 }
 
 
 //ここに問題2で作成したRoninを改変して記述
-
+class Ronin extends Samurai {
+	
+	void work() {
+		System.out.println("傘張るよ～。");
+	}
+}
 
 public class CastleTown {
 
@@ -48,7 +54,8 @@ public class CastleTown {
 
 
         //ここに必要な処理を記述
-
+        Samurai samurai = new Samurai();
+        samurai.work();
 
         System.out.println("\n具体的に言うと浪人は傘張りをします。\n");
 
@@ -56,7 +63,8 @@ public class CastleTown {
 
 
         //ここに必要な処理を記述
-
+        Ronin ronin = new Ronin();
+        ronin.work();
 
     }
 }

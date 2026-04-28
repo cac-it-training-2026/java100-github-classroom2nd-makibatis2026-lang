@@ -18,12 +18,17 @@ class Spaceship {
     private int air;
     private int fuel;
     //ここにクラス変数を記述する。
+    public static int number;
 
-    
-    
-    //ここに適切な処理を記述する。
+	//ここに適切な処理を記述する。
     //一隻目の宇宙船には燃料10をセットし、
     //二席目の宇宙船には燃料20をセットしてください
+    /**
+	 * 
+	 */
+	public Spaceship() {
+		number ++;
+	}
    
     public Spaceship(int air, int fuel) {
         this.air = air;
@@ -61,5 +66,6 @@ public class Astronaut {
         System.out.println("2隻目の燃料は" + spaceship2.getFuel() + "です"); 
 
         //ここに処理を記述する
+        Spaceship.showsum();
     }
 }

@@ -154,10 +154,105 @@ public class WarehouseManager {
 
 
 		//Yさんのコンテナにじゃんけんの手を入れる処理を記述する。
+		int jankenY = 0;
+		boolean loopFlag = false;
 
+		for (int i = 0; i < jankenArray1.length; i++) {
+			System.out.print("\nコンテナ" + (i + 1) + "に入れるブロックを選択してください（1.グー、2.チョキ、3.パー）＞");
+			jankenY = Integer.parseInt(br.readLine());
+
+			if (jankenY == 1) {
+				if (stoneCount1 == 0 && stoneCount2 == 0) {
+					jankenArray1[i] = jankenY;
+					stoneCount1 = 1;
+				}else if (stoneCount1 ==1 && stoneCount2 == 0) {
+					jankenArray1[i] = jankenY;
+					stoneCount2 = 1;
+				}else if (stoneCount2 ==1) {
+					System.out.println("Yさん：");
+					System.out.println("グーはもう使えません。");
+					i --;
+					continue;
+				}
+			}else if (jankenY == 2) {
+				if (scissorsCount1 == 0 && scissorsCount2 == 0) {
+					jankenArray1[i] = jankenY;
+					scissorsCount1 = 1;
+				}else if (scissorsCount1 ==1 && scissorsCount2 == 0) {
+					jankenArray1[i] = jankenY;
+					scissorsCount2 = 1;
+				}else if (scissorsCount2 ==1) {
+					System.out.println("Yさん：");
+					System.out.println("チョキはもう使えません。");
+					i --;
+					continue;
+				}
+			}else if (jankenY == 3) {
+				if (paperCount1 == 0 && paperCount2 == 0) {
+					jankenArray1[i] = jankenY;
+					paperCount1 = 1;
+				}else if (paperCount1 ==1 && paperCount2 == 0) {
+					jankenArray1[i] = jankenY;
+					paperCount2 = 1;
+				}else if (paperCount2 ==1) {
+					System.out.println("Yさん：");
+					System.out.println("パーはもう使えません。");
+					i --;
+					continue;
+				}
+			}else {
+				System.out.println("Yさん：");
+				System.out.println("え～。そんな手ないよ。");
+				i --;
+				continue;
+			}
+		}
+		stoneCount1 = 0;
+		stoneCount2 = 0;
+		scissorsCount1 = 0;
+		scissorsCount2 = 0;
+		paperCount1 = 0;
+		paperCount2 = 0;
 
 		//Sさんのコンテナにじゃんけんの手を入れる処理を記述する。（ランダム）
+		for (int i = 0; i < jankenArray2.length; i++) {
+			jankenY = (int) (Math.random() * 10) % 3 + 1;
 
+			if (jankenY == 1) {
+				if (stoneCount1 == 0 && stoneCount2 == 0) {
+					jankenArray2[i] = jankenY;
+					stoneCount1 = 1;
+				}else if (stoneCount1 ==1 && stoneCount2 == 0) {
+					jankenArray2[i] = jankenY;
+					stoneCount2 = 1;
+				}else if (stoneCount2 ==1) {
+					i --;
+					continue;
+				}
+			}else if (jankenY == 2) {
+				if (scissorsCount1 == 0 && scissorsCount2 == 0) {
+					jankenArray2[i] = jankenY;
+					scissorsCount1 = 1;
+				}else if (scissorsCount1 ==1 && scissorsCount2 == 0) {
+					jankenArray2[i] = jankenY;
+					scissorsCount2 = 1;
+				}else if (scissorsCount2 ==1) {
+					i --;
+					continue;
+				}
+			}else if (jankenY == 3) {
+				if (paperCount1 == 0 && paperCount2 == 0) {
+					jankenArray2[i] = jankenY;
+					paperCount1 = 1;
+				}else if (paperCount1 ==1 && paperCount2 == 0) {
+					jankenArray2[i] = jankenY;
+					paperCount2 = 1;
+				}else if (paperCount2 ==1) {
+					i --;
+					continue;
+				}
+			}
+		}
 
 		for (int count = 0; count < 5; count++) {
 
@@ -171,13 +266,37 @@ public class WarehouseManager {
 
 
 			//Yさんのどのコンテナをオープンするか入力してもらう処理を記述する。
+			do {
+				loopFlag = false;
+				System.out.println("オープンするコンテナを決めてください＞");
+				openNum1 = Integer.parseInt(br.readLine()) - 1;
+
+				if (openNum1 < 0 || openNum1 > 4) {
+					System.out.println("\nYさん：");
+					System.out.println("え～。そんなコンテナないよ。\n");
+					loopFlag = true;
+
+				} else if (jankenArray1[openNum1] == 0) {
+					System.out.println("\nYさん：");
+					System.out.println("そのコンテナはもうオープンしちゃったよ。\n");
+					loopFlag = true;
+				}
+			} while (loopFlag);
 
 
 			int openNum2 = 0;
 
 
 			//Sさんのどのコンテナをオープンするか決定する処理を記述する。（ランダム）
+			do {
+				loopFlag = false;
+				openNum2 = (int) (Math.random() * 10) % 5;
 
+				if (jankenArray2[openNum2] == 0) {
+					loopFlag = true;
+
+				}
+			} while (loopFlag);
 
 			System.out.println("\nYさん：");
 			System.out.println("よし、" + (openNum1 + 1) + "番コンテナだ！\n");
@@ -196,8 +315,35 @@ public class WarehouseManager {
 
 
 			//1回ごとの勝敗判定およびメッセージの出力処理を記述する。
+			if (jankenArray1[openNum1] == jankenArray2[openNum2]) {
+				System.out.println("引き分けです。");
+				drawPoint ++;
 
+				System.out.println("\nYさん：");
+				System.out.println("おしいな～");
+				System.out.println("\nSさん：");
+				System.out.println("実質おらの勝ちだべ。");
 
+			}else if (jankenArray1[openNum1] - jankenArray2[openNum2] == -1 || jankenArray1[openNum1] - jankenArray2[openNum2] == 2) {
+				System.out.println("Yさんの勝ちです。");
+				winPoint ++;
+
+				System.out.println("\nYさん：");
+				System.out.println("次は勝つぞ！");
+				System.out.println("\nSさん：");
+				System.out.println("負けるわけねべ！");
+
+			}else if (jankenArray1[openNum1] - jankenArray2[openNum2] == 1 || jankenArray1[openNum1] - jankenArray2[openNum2] == -2) {
+				System.out.println("Sさんの勝ちです。");
+				losePoint ++;
+
+				System.out.println("\nYさん：");
+				System.out.println("負けちゃった。悔しいな～");
+				System.out.println("\nSさん：");
+				System.out.println("弱い者に勝っても、な～んも自慢になんねな。");
+			}
+			jankenArray1[openNum1] = 0;
+			jankenArray2[openNum2] = 0;
 		}
 
 		System.out.println("審判：");

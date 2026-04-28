@@ -101,6 +101,15 @@ public class WarehouseManager {
 
 
 		//ここに適切な値の挿入処理を記述する
+		int sum = 0;
+		for (int i = 0; i < wonderfulArray.length; i++) {
+			sum += wonderfulArray[i];
+		}
+		for (int i = 0; i < wonderfulArray.length; i++) {
+			if (wonderfulArray[i] == 0) {
+				wonderfulArray[i] = (15 - sum);
+			}
+		}
 
 
 		System.out.println("Yさん：");

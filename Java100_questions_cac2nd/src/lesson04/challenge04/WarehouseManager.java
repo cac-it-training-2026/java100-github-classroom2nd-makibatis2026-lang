@@ -44,6 +44,11 @@ public class WarehouseManager {
 
 
 		//ここに配列の宣言および値の代入処理を記述する（for文）
+		int data_siz = 5;
+		int[] ABnumbers = new int[data_siz];
+		for (int i = 0; i < ABnumbers.length; i++) {
+			ABnumbers[i] = (int) (Math.random() * 5 + 1);
+		}
 
 
 		System.out.println("E主任：");
@@ -56,6 +61,12 @@ public class WarehouseManager {
 
 
 		//ここに要素の確認および何袋目かの出力処理を記述する
+		for (int i = 0; i < ABnumbers.length; i++) {
+			if (ABnumbers[i] == 5) {
+				System.out.println((i + 1) + "袋目");
+				hitFlag = true;
+			}
+		}
 
 
 		if (hitFlag) {

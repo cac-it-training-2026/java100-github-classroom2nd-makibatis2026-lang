@@ -64,6 +64,9 @@ public class RobotMaker {
 
         //ここにRobotoクラスを利用したオブジェクトを作成してください。
         //またフィールドenergyに10を代入してください。
+        
+        Robot RF1 = new Robot();
+        RF1.energy = 10;
 
         System.out.println("Rさん：");
         System.out.println("はい......１台作ってエネルギーを入れました。\n");

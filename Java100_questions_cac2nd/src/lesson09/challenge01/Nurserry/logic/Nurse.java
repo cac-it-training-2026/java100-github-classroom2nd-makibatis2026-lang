@@ -19,7 +19,11 @@ public class Nurse {
 
 
        //ここに適切な処理を記述
-
+    	try {
+			System.out.println(childs[num - 1].getName() + "は出席しています。");
+		} catch (ArrayIndexOutOfBoundsException e) {
+			 System.out.println("その番号の園児は出席してません。");
+		}
 
     }
 }

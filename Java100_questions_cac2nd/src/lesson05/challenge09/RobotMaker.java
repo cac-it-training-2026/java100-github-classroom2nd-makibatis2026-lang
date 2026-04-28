@@ -51,7 +51,6 @@ package lesson05.challenge09;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 //ここに問題8で作成したクラス(変更なし)を記述してください。
 
@@ -98,7 +97,14 @@ public class RobotMaker {
         //（インスタンス名はrobot）
         //makeEggDishesを実行する。
         //標準出力でメニューを表示する。
-
+        Robot robot = new Robot();
+        String menu = robot.makeEggDishes(flourNum, sugarNum, eggNum, butterNum);
+        
+        if (menu == null) {
+			System.out.println("\n何も作れません。");
+		}else {
+			System.out.println("\n" + menu + "が出来ました。");
+		}
 
         System.out.println("\nあとかたづけをします。\n");
         int[] ingredients = new int[4];
@@ -111,7 +117,8 @@ public class RobotMaker {
         //ここでClearRobotクラスのインスタンスを作り、
         //（インスタンス名はclearRobot）
         //clearTableを実行する。
-
+        ClearRobot clearRobot = new ClearRobot();
+        clearRobot.clearTable(ingredients);
 
         System.out.println("小麦粉  ：" + ingredients[0] + "g");
         System.out.println("砂糖    ：" + ingredients[1] + "g");
