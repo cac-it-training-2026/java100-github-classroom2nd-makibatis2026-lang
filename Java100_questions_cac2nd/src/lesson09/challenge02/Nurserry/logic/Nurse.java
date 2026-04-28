@@ -19,6 +19,13 @@ public class Nurse {
 
 
         //ここに適切な処理を記述
+    	try {
+    		int eatCake = cakes / childs;
+    		System.out.println("\n1人" + eatCake + "個になります。");
+    		
+		} catch (ArithmeticException e) {
+			System.out.println("\nケーキを食べる園児がいません。");
+		}
 
 
     }
